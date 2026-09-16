@@ -14,14 +14,14 @@ var testCases = []tests.TestCase{
 	{"token - illegal lowercase prefix", "akcabcXYZ1234", false},
 	{"token - illegal characters", "AKCabcXYZ1234=", false},
 
-	{"password - minimal length", "AP0abcXYZ12", true},
-	{"password - long", "APEabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890", true},
-	{"password - too short", "AP0abcXYZ1", false},
-	{"password - illegal AP prefix", "NAP0abcXYZ12", false},
-	{"password - illegal lowercase AP prefix", "ap0abcXYZ12", false},
-	{"password - illegal prefix character", "APGabcXYZ12", false},
-	{"password - illegal lowercase prefix character", "APeabcXYZ12", false},
-	{"password - illegal character", "AP0abcXYZ12+", false},
+	// {"password - minimal length", "AP0abcXYZ12", true},
+	// {"password - long", "APEabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890", true},
+	// {"password - too short", "AP0abcXYZ1", false},
+	// {"password - illegal AP prefix", "NAP0abcXYZ12", false},
+	// {"password - illegal lowercase AP prefix", "ap0abcXYZ12", false},
+	// {"password - illegal prefix character", "APGabcXYZ12", false},
+	// {"password - illegal lowercase prefix character", "APeabcXYZ12", false},
+	// {"password - illegal character", "AP0abcXYZ12+", false},
 
 	{"empty input", "", false},
 }

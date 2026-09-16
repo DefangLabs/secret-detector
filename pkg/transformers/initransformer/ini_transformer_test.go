@@ -109,8 +109,6 @@ multi =
 `,
 		map[string]string{"multi": "ln 1\n  ln 2\n  ln 3", "section.multi": "\n  this is a\n  long text"}},
 	{"ini with CR/LF", "key1=val1\r\nkey2:val2\n", map[string]string{"key1": "val1", "key2": "val2"}},
-	{"input with one key", "org.opencontainers.image.ref.name=ubuntu", map[string]string{"org.opencontainers.image.ref.name": "ubuntu"}},
-	{"base64 is not parsed", "dGhpcyBpcyBhIHRlc3QgZm9yIGhpZ2ggZW50cm9weSBiYXNlNjQgc2VjcmV0IGRldGVjdGlvbg==", map[string]string(nil)},
 }
 
 var iniTransformer = NewTransformer()

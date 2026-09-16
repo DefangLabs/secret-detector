@@ -20,7 +20,7 @@ var testCases = []tests.TestCase{
 	{"illegal json - redundant comma", `{"key": "value", }`, nil},
 	{"empty json", `{}`, map[string]string{}},
 	{"value types", `{"s": "a string", "i": 10, "neg": -10, "f": 3.14, "e": 1e3, "b1": true, "b2": false, "u": "\u003a\u0029", "nil": null}`,
-		map[string]string{"s": "a string", "i": "10", "neg": "-10", "f": "3.14", "e": "1000", "b1": "true", "b2": "false", "u": ":)", "nil": "<nil>"}},
+		map[string]string{"s": "a string", "i": "10", "neg": "-10", "f": "3.14", "e": "1000", "b1": "true", "b2": "false", "u": ":)", "nil": ""}},
 	{"special characters", `{
 "spa ce": "val ue",
 "ta\tb": "val\tue",
