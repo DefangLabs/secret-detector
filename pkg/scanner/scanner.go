@@ -9,7 +9,6 @@ import (
 
 	"github.com/DefangLabs/secret-detector/pkg/dataformat"
 	"github.com/DefangLabs/secret-detector/pkg/secrets"
-	"github.com/inhies/go-bytesize"
 )
 
 const (
@@ -256,6 +255,14 @@ func reduceDuplicateDetections(detections []secrets.DetectedSecret) []secrets.De
 // formatByteSize formats size as a human-readable byte size using powers of
 // 1024 and suffixes such as KB, MB, and GB, with two decimal places.
 func formatByteSize(size int64) string {
-	b := bytesize.New(float64(size))
-	return b.String()
+	units := [...]string{"B", "KB", "MB", "GB", "TB", "PB", "EB"}
+
+	value := float64(size)
+	unit := 0
+	for value >= 1024 && unit < len(units)-1 {
+		value /= 1024
+		unit++
+	}
+
+	return fmt.Sprintf("%.2f%s", value, units[unit])
 }
