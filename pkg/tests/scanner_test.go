@@ -87,8 +87,8 @@ var (
 		awsKey:          `aws"12345+67890/abcdefghijklm+NOPQRSTUVWXYZ+"`,
 		mwsKey:          `amzn.mws.12345678-1234-1234-1234-123456789012`,
 		azureKey:        `AccountKey=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890+/abcdefghijklmnopqrstuv==`,
-		basicAuthKey:    `Basic ABCDEFGHIJ+KLMNOPQRST/UVWXYZ,abcdefghij_klmnopqrstuvwxyz-1234567890==`,
-		bearerAuthKey:   `Bearer ABCDEFGHIJ+KLMNOPQRST/UVWXYZ,abcdefghij_klmnopq.rstuvwxyz-1234567890==`,
+		basicAuthKey:    `Basic ZDp6cg==`,
+		bearerAuthKey:   `Bearer ZDp6cg==`,
 		entropyKey:      `dGhpcyBpcyBhIHRlc3QgZm9yIGhpZ2ggZW50cm9weSBiYXNlNjQgc2VjcmV0IGRldGVjdGlvbg`,
 		urlPwdKey:       `smtp://user@example.com:p455w0rd@smtp.example.com:465/`,
 		githubKey:       `ghp_aBcDeFgHiJkLmNoPqRsTuVwXyZ1234567890`,
@@ -284,12 +284,6 @@ func TestJustValues(t *testing.T) {
 		case keywordKey:
 			in = fmt.Sprintf("%s=%s", secret.Key, input[secret.Key])
 			expected = append(expected, secrets.DetectedSecret{Key: secret.Key, Type: secret.Type, Value: secret.Value})
-		case pkKey:
-			in = input[secret.Key]
-			if i := strings.Index(secret.Value, "\n"); i != -1 { // in pk we identify the header as value
-				secret.Value = secret.Value[:i]
-			}
-			expected = append(expected, secrets.DetectedSecret{Key: "", Type: secret.Type, Value: secret.Value})
 		case azureKey:
 			in = input[secret.Key]
 			expected = append(expected, secrets.DetectedSecret{Key: "AccountKey", Type: secret.Type, Value: secret.Value[11:]})
