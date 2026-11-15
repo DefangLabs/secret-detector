@@ -17,7 +17,7 @@ var testCases = []tests.TestCase{
 key1: val1
 key2: ""
 key3: `,
-		map[string]string{"key1": "val1", "key2": "", "key3": "<nil>"}},
+		map[string]string{"key1": "val1", "key2": "", "key3": ""}},
 	{"nesting keys",
 		`
 key1:
